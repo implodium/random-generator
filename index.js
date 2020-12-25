@@ -6,7 +6,7 @@ window.addEventListener('load', () => {
             const numberField = document.querySelector('#number-field');
             const generationOverlay = document.querySelector('#random-number-overlay')
             const generationNumberField = document.querySelector("#random-number-container")
-            let randomNumber =  Math.trunc( 1 + Math.random() * (numberField.value - 1));
+            let randomNumber =  Math.trunc( 1 + Math.random() * numberField.value);
 
 
             generationNumberField.textContent = randomNumber.toString();
