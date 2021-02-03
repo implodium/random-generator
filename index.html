@@ -8,8 +8,28 @@
 <body>
     <div id="container">
         <span id="title">Random</span>
-        <input id="number-field" type="number">
-        <div id="generate-button">Generate</div>
+        <div id="t-nav">
+            <span id="t-nav-random-number" class="t-nav-element"> Rando Number </span>
+            <span id="t-nav-random-word" class="t-nav-element"> Random Word </span>
+        </div>
+
+        <div id="content-container">
+            <div id="t-random-number" class="t-random-container" style="display: none">
+                <input class="random-field" id="number-field" type="number">
+                <div id="generate-button-number" class="round-button">Generate</div>
+            </div>
+            <div id="t-random-word" class="t-random-container">
+                <input class="random-field" id="word-field" type="text">
+
+                <div id="current-words">
+                    <div class="current-word">Brawlhalla</div>
+                </div>
+
+                <div id="submit-word" class="round-button"> + </div>
+
+                <div id="generate-button-word" class="round-button">Generate</div>
+            </div>
+        </div>
     </div>
 
     <div id="random-number-overlay">
