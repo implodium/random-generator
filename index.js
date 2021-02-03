@@ -1,5 +1,9 @@
 window.addEventListener('load', () => {
 
+    function deleteSelf() {
+        this.remove()
+    }
+
     function displayRandom(text) {
         const generationOverlay = document.querySelector('#random-number-overlay')
         const generationNumberField = document.querySelector("#random-number-container")
@@ -21,6 +25,7 @@ window.addEventListener('load', () => {
             const newWordElement = document.createElement('div')
             newWordElement.classList.add('current-word')
             newWordElement.textContent = wordField.value;
+            newWordElement.addEventListener('click', deleteSelf)
             wordField.value = ""
             currentWordContainer.appendChild(newWordElement)
         }
