@@ -13,6 +13,19 @@ window.addEventListener('load', () => {
         }, 20)
     }
 
+    function addRandomWord() {
+        const wordField = document.querySelector('#word-field')
+        if (wordField.value.trim() !== "") {
+            const currentWordContainer = document.querySelector('#current-words')
+
+            const newWordElement = document.createElement('div')
+            newWordElement.classList.add('current-word')
+            newWordElement.textContent = wordField.value;
+            wordField.value = ""
+            currentWordContainer.appendChild(newWordElement)
+        }
+    }
+
     document
         .querySelector("#generate-button-number")
         .addEventListener('click', () => {
@@ -41,13 +54,17 @@ window.addEventListener('load', () => {
             .querySelector(`#t-nav-random-${randomType}`)
             .addEventListener('click', () => {
                 const tContainer = document.querySelector(`#t-random-${randomType}`)
+                let tNav = document.querySelector(`#t-nav-random-${randomType}`)
                 let otherTypes = randomTypes.slice();
                 otherTypes.splice(otherTypes.indexOf(randomType), 1)
 
                 tContainer.style.display = "flex"
+                tNav.style.color = "grey"
                 otherTypes.forEach(otherType => {
                     let tOtherContainer = document.querySelector(`#t-random-${otherType}`)
+                    let tOtherNav = document.querySelector(`#t-nav-random-${otherType}`)
 
+                    tOtherNav.style.color = "black"
                     tOtherContainer.style.display = "none"
                 })
             });
@@ -56,15 +73,7 @@ window.addEventListener('load', () => {
     document
         .querySelector('#submit-word')
         .addEventListener('click', () => {
-            const wordField = document.querySelector('#word-field')
-            const currentWordContainer = document.querySelector('#current-words')
-
-            const newWordElement = document.createElement('div')
-            newWordElement.classList.add('current-word')
-            newWordElement.textContent = wordField.value;
-            wordField.value = ""
-            currentWordContainer.appendChild(newWordElement)
-
+            addRandomWord()
         })
 
     document
@@ -75,5 +84,11 @@ window.addEventListener('load', () => {
             displayRandom(currentWords.children[randomNumber - 1].textContent)
         })
 
-
+    document
+        .querySelector('#word-field')
+        .addEventListener('keydown', evt => {
+            if (evt.keyCode === 13) {
+                addRandomWord()
+            }
+        })
 })

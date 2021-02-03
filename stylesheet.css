@@ -27,6 +27,10 @@ body {
     font-family: "JetBrains Mono", monospace;
 }
 
+#t-nav-random-number {
+    color: grey;
+}
+
 .t-random-container {
     display: flex;
     justify-content: space-evenly;
