@@ -1,7 +1,10 @@
 window.addEventListener('load', () => {
 
     function deleteSelf() {
-        this.remove()
+        this.style.transform = 'scale(0,0)'
+        setTimeout(() => {
+            this.remove()
+        }, 500)
     }
 
     function displayRandom(text) {
@@ -28,6 +31,9 @@ window.addEventListener('load', () => {
             newWordElement.addEventListener('click', deleteSelf)
             wordField.value = ""
             currentWordContainer.appendChild(newWordElement)
+            setTimeout(() => {
+                newWordElement.style.transform = 'scale(1,1)'
+            }, 20)
         }
     }
 
